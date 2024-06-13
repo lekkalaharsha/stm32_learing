@@ -1,23 +1,11 @@
 #include "stm32f103xb.h"
 #include "stm32f1xx.h"
-
-
-
 #define GPICEN  (1UL << 4U)
 #define PIN13   13U
 #define LEDPIN  (1UL << PIN13)
-
 int main(void){
-
 	RCC->APB2ENR |= GPICEN;
-
 	GPIOC->CRH |= (1U<<20);
-
-
-
-
-
-
 	while (1)
 	{
 		/* code */
@@ -27,6 +15,4 @@ int main(void){
         GPIOC->BSRR = LEDPIN;
         for (volatile int i = 0; i < 100000; ++i);  // Delay
 	}
-
-
 }
